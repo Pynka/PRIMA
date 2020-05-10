@@ -13,7 +13,7 @@ namespace L02_SnakeStart {
 
     let snake: ƒ.Node = new ƒ.Node("Snake");
 
-    for (let i: number = 0; i < 4; i++) {
+    for (let i: number = 0; i < 2; i++) {
       let node: ƒ.Node = new ƒ.Node("Quad");
 
       let cmpMesh: ƒ.ComponentMesh = new ƒ.ComponentMesh(mesh);
