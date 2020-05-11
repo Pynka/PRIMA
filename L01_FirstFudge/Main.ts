@@ -19,8 +19,9 @@ namespace L01_FirstFudge {
         node.addComponent(cmpMaterial);
 
         let cmpCamera: ƒ.ComponentCamera = new ƒ.ComponentCamera();
-        cmpCamera.pivot.translateZ(2);
-        cmpCamera.pivot.rotateY(180);
+        cmpCamera.pivot.translateZ(5);
+        cmpCamera.pivot.translateY(1);
+        cmpCamera.pivot.rotateY(170);
 
         viewport = new ƒ.Viewport();
         viewport.initialize("Viewport", node, cmpCamera, canvas);

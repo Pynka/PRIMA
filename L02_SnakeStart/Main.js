@@ -9,7 +9,7 @@ var L02_SnakeStart;
         let mesh = new ƒ.MeshQuad();
         let mtrSolidWhite = new ƒ.Material("SolidWhite", ƒ.ShaderUniColor, new ƒ.CoatColored(ƒ.Color.CSS("WHITE")));
         let snake = new ƒ.Node("Snake");
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 3; i++) {
             let node = new ƒ.Node("Quad");
             let cmpMesh = new ƒ.ComponentMesh(mesh);
             node.addComponent(cmpMesh);
@@ -20,7 +20,7 @@ var L02_SnakeStart;
             snake.appendChild(node);
         }
         let cmpCamera = new ƒ.ComponentCamera();
-        cmpCamera.pivot.translateZ(10);
+        cmpCamera.pivot.translateZ(40);
         cmpCamera.pivot.rotateY(180);
         L02_SnakeStart.viewport = new ƒ.Viewport();
         L02_SnakeStart.viewport.initialize("Viewport", snake, cmpCamera, canvas);

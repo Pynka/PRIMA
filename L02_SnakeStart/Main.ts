@@ -13,7 +13,7 @@ namespace L02_SnakeStart {
 
     let snake: ƒ.Node = new ƒ.Node("Snake");
 
-    for (let i: number = 0; i < 2; i++) {
+    for (let i: number = 0; i < 3; i++) {
       let node: ƒ.Node = new ƒ.Node("Quad");
 
       let cmpMesh: ƒ.ComponentMesh = new ƒ.ComponentMesh(mesh);
@@ -29,7 +29,7 @@ namespace L02_SnakeStart {
     }
 
     let cmpCamera: ƒ.ComponentCamera = new ƒ.ComponentCamera();
-    cmpCamera.pivot.translateZ(10);
+    cmpCamera.pivot.translateZ(40);
     cmpCamera.pivot.rotateY(180);
 
     viewport = new ƒ.Viewport();
