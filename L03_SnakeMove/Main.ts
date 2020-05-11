@@ -1,9 +1,9 @@
-namespace L03_SnakeMove {
+namespace L04_SnakeControl {
   import ƒ = FudgeCore;
 
   window.addEventListener("load", hndLoad);
   export let viewport: ƒ.Viewport;
-  let snake: Snake;  
+  let snake: Snake;
 
   function hndLoad(_event: Event): void {
     const canvas: HTMLCanvasElement = document.querySelector("canvas");
@@ -12,12 +12,14 @@ namespace L03_SnakeMove {
     snake = new Snake();
 
     let cmpCamera: ƒ.ComponentCamera = new ƒ.ComponentCamera();
-    cmpCamera.pivot.translateZ(40);
+    cmpCamera.pivot.translateZ(20);
     cmpCamera.pivot.rotateY(180);
 
     viewport = new ƒ.Viewport();
     viewport.initialize("Viewport", snake, cmpCamera, canvas);
     ƒ.Debug.log(viewport);
+
+
 
     document.addEventListener("keydown", control);
 
@@ -27,6 +29,7 @@ namespace L03_SnakeMove {
 
   function update(_event: ƒ.Eventƒ): void {
     viewport.draw();
+
     snake.move();
     console.log("Loop");
   }

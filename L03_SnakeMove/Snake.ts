@@ -1,8 +1,8 @@
-namespace L03_SnakeMove {
+namespace L04_SnakeControl {
   import ƒ = FudgeCore;
-  export class Snake extends ƒ.Node {
 
-    public dirCurrent: ƒ.Vector3 = ƒ.Vector3.X();
+  export class Snake extends ƒ.Node {
+    private dirCurrent: ƒ.Vector3 = ƒ.Vector3.X();
     private dirNew: ƒ.Vector3;
 
     constructor() {
@@ -10,7 +10,7 @@ namespace L03_SnakeMove {
       console.log("Creating Snake");
       this.createSegement(4);
     }
-    
+
     public move(): void {
       this.dirCurrent = this.dirNew || this.dirCurrent;
       let child: ƒ.Node = this.getChildren()[0];
@@ -26,6 +26,7 @@ namespace L03_SnakeMove {
         cmpNew = cmpPrev;
       }
     }
+
     public set direction(_new: ƒ.Vector3) {
       if (this.dirCurrent.equals(ƒ.Vector3.SCALE(_new, -1)))
         return;

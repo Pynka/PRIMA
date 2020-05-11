@@ -1,6 +1,6 @@
 "use strict";
-var L03_SnakeMove;
-(function (L03_SnakeMove) {
+var L04_SnakeControl;
+(function (L04_SnakeControl) {
     var ƒ = FudgeCore;
     class Snake extends ƒ.Node {
         constructor() {
@@ -44,6 +44,6 @@ var L03_SnakeMove;
             }
         }
     }
-    L03_SnakeMove.Snake = Snake;
-})(L03_SnakeMove || (L03_SnakeMove = {}));
+    L04_SnakeControl.Snake = Snake;
+})(L04_SnakeControl || (L04_SnakeControl = {}));
 //# sourceMappingURL=Snake.js.map

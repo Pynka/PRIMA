@@ -1,25 +1,25 @@
 "use strict";
-var L03_SnakeMove;
-(function (L03_SnakeMove) {
+var L04_SnakeControl;
+(function (L04_SnakeControl) {
     var ƒ = FudgeCore;
     window.addEventListener("load", hndLoad);
     let snake;
     function hndLoad(_event) {
         const canvas = document.querySelector("canvas");
         ƒ.Debug.log(canvas);
-        snake = new L03_SnakeMove.Snake();
+        snake = new L04_SnakeControl.Snake();
         let cmpCamera = new ƒ.ComponentCamera();
-        cmpCamera.pivot.translateZ(40);
+        cmpCamera.pivot.translateZ(20);
         cmpCamera.pivot.rotateY(180);
-        L03_SnakeMove.viewport = new ƒ.Viewport();
-        L03_SnakeMove.viewport.initialize("Viewport", snake, cmpCamera, canvas);
-        ƒ.Debug.log(L03_SnakeMove.viewport);
+        L04_SnakeControl.viewport = new ƒ.Viewport();
+        L04_SnakeControl.viewport.initialize("Viewport", snake, cmpCamera, canvas);
+        ƒ.Debug.log(L04_SnakeControl.viewport);
         document.addEventListener("keydown", control);
         ƒ.Loop.addEventListener("loopFrame" /* LOOP_FRAME */, update);
         ƒ.Loop.start(ƒ.LOOP_MODE.TIME_REAL, 5);
     }
     function update(_event) {
-        L03_SnakeMove.viewport.draw();
+        L04_SnakeControl.viewport.draw();
         snake.move();
         console.log("Loop");
     }
@@ -34,5 +34,5 @@ var L03_SnakeMove;
         if (!direction.equals(ƒ.Vector3.ZERO()))
             snake.direction = direction;
     }
-})(L03_SnakeMove || (L03_SnakeMove = {}));
+})(L04_SnakeControl || (L04_SnakeControl = {}));
 //# sourceMappingURL=Main.js.map
