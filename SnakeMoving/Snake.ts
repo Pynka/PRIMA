@@ -15,7 +15,7 @@ namespace L04_SnakeControl {
         this.position = position;
         isHead ? this.previousElement = null : this.previousElement = previousElement;
         isHead ? this.nextElement = null : this.nextElement = nextElement;
-        this.create
+        this.create;
     }
   }
 
