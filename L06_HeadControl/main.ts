@@ -42,8 +42,29 @@ namespace L06_Snake3D_HeadControl {
 
   function update(_event: ƒ.Eventƒ): void {
     snake.move();
+    if (isCollision){
+      alert("You lost the game");
+      return;
+    }
     moveCamera();
     viewport.draw();
+  }
+
+  function isCollision() : boolean {
+    let children: ƒ.Node[] = snake.getChildren();
+    let mtxHeadPosition: ƒ.Vector3 = children [0].mtxLocal.translation;
+    let distance;
+    for (let i = 1; i<children.length; i++){
+     distance =  Math.sqrt(Math.pow((children[i].mtxLocal.translation.x -mtxHeadPosition.x), 2) // berechnung des radius 
+      + Math.pow((children[i].mtxLocal.translation.y -mtxHeadPosition.y), 2)
+      + Math.pow((children[i].mtxLocal.translation.z -mtxHeadPosition.z), 2));
+     let childRadius = children[i].cmpTransform.local.scaling.x / 2
+      if(distance < childRadius + childRadius){
+        console.log("Spiel beendet");
+        return true;
+      }
+      return false;
+    }
   }
 
   function moveCamera(): void {

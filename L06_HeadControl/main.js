@@ -11,7 +11,7 @@ var L06_Snake3D_HeadControl;
         const canvas = document.querySelector("canvas");
         ƒ.Debug.log(canvas);
         let graph = new ƒ.Node("Game");
-        snake = new Snake();
+        snake = new L06_Snake3D_HeadControl.Snake();
         graph.addChild(snake);
         cosys.addComponent(new ƒ.ComponentTransform(ƒ.Matrix4x4.SCALING(ƒ.Vector3.ONE(10))));
         // graph.addChild(cosys);
@@ -30,8 +30,28 @@ var L06_Snake3D_HeadControl;
     }
     function update(_event) {
         snake.move();
+        if (isCollision) {
+            alert("You lost the game");
+            return;
+        }
         moveCamera();
         L06_Snake3D_HeadControl.viewport.draw();
+    }
+    function isCollision() {
+        let children = snake.getChildren();
+        let mtxHeadPosition = children[0].mtxLocal.translation;
+        let distance;
+        for (let i = 1; i < children.length; i++) {
+            distance = Math.sqrt(Math.pow((children[i].mtxLocal.translation.x - mtxHeadPosition.x), 2) // berechnung des radius 
+                + Math.pow((children[i].mtxLocal.translation.y - mtxHeadPosition.y), 2)
+                + Math.pow((children[i].mtxLocal.translation.z - mtxHeadPosition.z), 2));
+            let childRadius = children[i].cmpTransform.local.scaling.x / 2;
+            if (distance < childRadius + childRadius) {
+                console.log("Spiel beendet");
+                return true;
+            }
+            return false;
+        }
     }
     function moveCamera() {
         let posCamera = snake.head.mtxLocal.translation;
@@ -67,4 +87,4 @@ var L06_Snake3D_HeadControl;
         // cosys.mtxLocal.rotate(rotation);
     }
 })(L06_Snake3D_HeadControl || (L06_Snake3D_HeadControl = {}));
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=Main.js.map
