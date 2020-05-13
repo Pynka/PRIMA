@@ -11,18 +11,25 @@ namespace L06_Snake3D_HeadControl {
   let cosys: ƒAid.NodeCoordinateSystem = new ƒAid.NodeCoordinateSystem("ControlSystem");
   ƒ.RenderManager.initialize(true);
 
+  let score: number = 0;
+  let scoreSpan: HTMLSpanElement;
+
   function hndLoad(_event: Event): void {
     const canvas: HTMLCanvasElement = document.querySelector("canvas");
     ƒ.Debug.log(canvas);
+
+    scoreSpan = document.querySelector("#score");
 
     snake = new Snake();
     graph.addChild(snake);
     cosys.addComponent(new ƒ.ComponentTransform(ƒ.Matrix4x4.SCALING(ƒ.Vector3.ONE(10))));
     // graph.addChild(cosys);
 
+
+    // quader erstellen
     let cube: ƒAid.Node = new ƒAid.Node(
       "Cube", ƒ.Matrix4x4.SCALING(ƒ.Vector3.ONE(cubeSize)),
-      new ƒ.Material("Cube", ƒ.ShaderUniColor, new ƒ.CoatColored(ƒ.Color.CSS("aqua"))),
+      new ƒ.Material("Cube", ƒ.ShaderUniColor, new ƒ.CoatColored(ƒ.Color.CSS("tan"))),
       new ƒ.MeshCube()
     );
     graph.addChild(cube);
@@ -163,6 +170,8 @@ namespace L06_Snake3D_HeadControl {
     if (distance < 0.01){
       graph.removeChild(foodNode);
       spawnFood();
+      score++;
+      scoreSpan.innerText = score.toString();
       snake.createSegement(1);
      return true;
 

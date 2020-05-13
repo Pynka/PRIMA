@@ -8,7 +8,7 @@ var L06_Snake3D_HeadControl;
             super("Snake");
             this.dirCurrent = ƒ.Vector3.X();
             console.log("Creating Snake");
-            this.createSegement(3);
+            this.createSegement(1);
         }
         move() {
             this.dirCurrent = this.dirNew || this.dirCurrent;
@@ -49,7 +49,7 @@ var L06_Snake3D_HeadControl;
                 cmpMesh.pivot.scale(ƒ.Vector3.ONE(0.8));
                 let cmpMaterial = new ƒ.ComponentMaterial(mtrSolidWhite);
                 segment.addComponent(cmpMaterial);
-                cmpMaterial.clrPrimary = ƒ.Color.CSS("yellow");
+                cmpMaterial.clrPrimary = ƒ.Color.CSS("seagreen");
                 segment.addComponent(new ƒ.ComponentTransform(ƒ.Matrix4x4.TRANSLATION(new ƒ.Vector3(-1 * i, 0, 0))));
                 this.appendChild(segment);
             }

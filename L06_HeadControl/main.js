@@ -9,14 +9,18 @@ var L06_Snake3D_HeadControl;
     let snake;
     let cosys = new ƒAid.NodeCoordinateSystem("ControlSystem");
     ƒ.RenderManager.initialize(true);
+    let score = 0;
+    let scoreSpan;
     function hndLoad(_event) {
         const canvas = document.querySelector("canvas");
         ƒ.Debug.log(canvas);
+        scoreSpan = document.querySelector("#score");
         snake = new L06_Snake3D_HeadControl.Snake();
         graph.addChild(snake);
         cosys.addComponent(new ƒ.ComponentTransform(ƒ.Matrix4x4.SCALING(ƒ.Vector3.ONE(10))));
         // graph.addChild(cosys);
-        let cube = new ƒAid.Node("Cube", ƒ.Matrix4x4.SCALING(ƒ.Vector3.ONE(cubeSize)), new ƒ.Material("Cube", ƒ.ShaderUniColor, new ƒ.CoatColored(ƒ.Color.CSS("aqua"))), new ƒ.MeshCube());
+        // quader erstellen
+        let cube = new ƒAid.Node("Cube", ƒ.Matrix4x4.SCALING(ƒ.Vector3.ONE(cubeSize)), new ƒ.Material("Cube", ƒ.ShaderUniColor, new ƒ.CoatColored(ƒ.Color.CSS("tan"))), new ƒ.MeshCube());
         graph.addChild(cube);
         let cmpCamera = new ƒ.ComponentCamera();
         cmpCamera.pivot.translate(new ƒ.Vector3(5, 10, 40));
@@ -128,6 +132,8 @@ var L06_Snake3D_HeadControl;
         if (distance < 0.01) {
             graph.removeChild(foodNode);
             spawnFood();
+            score++;
+            scoreSpan.innerText = score.toString();
             snake.createSegement(1);
             return true;
         }

@@ -60,7 +60,7 @@ namespace L06_Snake3D_HeadControl {
 
         let cmpMaterial: ƒ.ComponentMaterial = new ƒ.ComponentMaterial(mtrSolidWhite);
         segment.addComponent(cmpMaterial);
-        cmpMaterial.clrPrimary = ƒ.Color.CSS("yellow");
+        cmpMaterial.clrPrimary = ƒ.Color.CSS("seagreen");
 
         segment.addComponent(new ƒ.ComponentTransform(ƒ.Matrix4x4.TRANSLATION(new ƒ.Vector3(-1 * i, 0, 0))));
 
