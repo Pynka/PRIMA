@@ -10,7 +10,7 @@ namespace L06_Snake3D_HeadControl {
     constructor() {
       super("Snake");
       console.log("Creating Snake");
-      this.createSegement(4);
+      this.createSegement(3);
     }
 
     public move(): void {
@@ -47,7 +47,7 @@ namespace L06_Snake3D_HeadControl {
       this.head.mtxLocal.rotate(_rotation);
     }
 
-    private createSegement(_segments: number): void {
+    public createSegement(_segments: number): void {
       let mesh: ƒ.MeshCube = new ƒ.MeshCube();
       let mtrSolidWhite: ƒ.Material = new ƒ.Material("SolidWhite", ƒ.ShaderUniColor, new ƒ.CoatColored(ƒ.Color.CSS("WHITE")));
 

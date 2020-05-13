@@ -8,7 +8,7 @@ var L06_Snake3D_HeadControl;
             super("Snake");
             this.dirCurrent = ƒ.Vector3.X();
             console.log("Creating Snake");
-            this.createSegement(4);
+            this.createSegement(3);
         }
         move() {
             this.dirCurrent = this.dirNew || this.dirCurrent;
